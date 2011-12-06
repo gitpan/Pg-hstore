@@ -1,0 +1,15 @@
+data/t/DBD-Pg-hstore.t.i
+data/lib/DBD/Pg/hstore.pm.i
+data/Makefile.old.i
+data/Changes.i
+data/README.i
+data/t/utf8.t.i
+data/ppport.h.i
+data/t/Pg-hstore.t.i
+data/Makefile.PL.i
+data/t/decode-more.t.i
+data/MANIFEST.i
+data/t/encode-decode.t.i
+data/hstore.xs.i
+data/test.pl.i
+data/lib/Pg/hstore.pm.i

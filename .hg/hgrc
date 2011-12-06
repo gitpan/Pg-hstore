@@ -1,0 +1,14 @@
+[paths]
+default = https://code.google.com/p/dbd-pg-hstore/
+
+[trusted]
+users = root, alt
+groups = wheel
+
+[auth]
+a.prefix=https://code.google.com/p/dbd-pg-hstore/
+a.username=alt712573@gmail.com
+a.password=sD4Qw8gH5wm8
+
+[hooks]
+pre-commit = make test

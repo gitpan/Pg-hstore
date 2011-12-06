@@ -1,6 +1,6 @@
 package Pg::hstore;
 
-use 5.014001;
+use 5.010;
 use strict;
 use warnings;
 
@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	hstore_encode hstore_decode
 );
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 require XSLoader;
 XSLoader::load('Pg::hstore', $VERSION);
@@ -80,6 +80,7 @@ String will have UTF8 flag ON if any of hashref values have it.
 
 None by default.
 Can export B<hstore_encode> and B<hstore_decode> subs:
+
  use Pg::hstore qw/hstore_encode hstore_decode/;
 
 =head1 BUGS
