@@ -52,13 +52,18 @@ INIT:
 	char *key, *val;
 	SV *valsv, *res;
 CODE:
+	//Check param
+	if( !SvOK(hashref) || !SvROK(hashref) || SvTYPE(SvRV(hashref))!=SVt_PVHV ) {
+		XSRETURN_UNDEF;
+	}
+	hash = (HV*) SvRV(hashref);
+
 	buf = (char*)malloc(buf_len);
 	if( buf == NULL ) {
 		vwarn("malloc fail", NULL);
 		XSRETURN_UNDEF;
 	}
 	buf[0]=0; //Fix for case we have empty hash so newSVpv with 0 len wont fail
-	hash = (HV*) SvRV(hashref);
 
 	//Iterate hash
 	hv_iterinit(hash);

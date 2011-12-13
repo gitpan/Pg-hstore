@@ -1,5 +1,6 @@
 Revision history for Perl extension Pg::hstore.
 
+1.02 'bus error' fix
 1.01 Fix packing bugs
 1.00 First working version
 0.01  Tue Nov 22 11:35:31 2011

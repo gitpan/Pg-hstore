@@ -7,7 +7,7 @@ use strict;
 use warnings;
 use Data::Dumper;
 
-use Test::More tests=>22;
+use Test::More tests=>25;
 BEGIN { use_ok('Pg::hstore') };
 
 #########################
@@ -57,3 +57,6 @@ __DATA__
 "Доколе?"=>"russian"
 
 	"all"=> "2gether", "test"=>"1" , "empty"=> "","slash"=>"\\","doubleslash"=>"\\\\","quote"=>"\""   ,"a" => "1" , "b"=>"2", "c" =>NULL,"spec" => "~!@#$%^&*()_+|-=\\/';\",.[]{}:<>?`","russian" => "Доколе?","1"=>"test", "\\"=>"slash" , "\\\\"=>"doubleslash"  ,"\""=>"quote",    "~!@#$%^&*()_+|-=\\/';\",.[]{}:<>?`"=>"spec","Доколе?"=>"russian",
+
+"site_url"=>"http://test.domain.ru", "max_downloads"=>"-1", "support_email"=>"support@test.ru"
+"price"=>"35.88", "shortnum"=>"770111", "period_id"=>"1", "price_desc"=>"11111 р/нед", "prolong_type"=>"402", "sale_gateway_id"=>"1013", "infosms_src_addr"=>"770111", "shortnum_prolong"=>"770111", "price_currency_id"=>"1", "shortnum_start_is_prepaid"=>"0"

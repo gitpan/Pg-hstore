@@ -25,7 +25,7 @@ our @EXPORT = qw(
 	hstore_encode hstore_decode
 );
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 require XSLoader;
 XSLoader::load('Pg::hstore', $VERSION);

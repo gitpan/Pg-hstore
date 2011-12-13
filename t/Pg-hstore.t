@@ -42,12 +42,23 @@ my $struct = {
 	none => undef,
 	'-test' => '$dunno',
 	'/whoot' => '\\thing',
-	'russian' => 'Из Раши виз лав',
-	'ключ' => 'значение'
+	'russian' => 'Из \'Раши\' виз "лав"',
+	'ключ' => '\'значение\''
 };
 $t1 = Pg::hstore::encode( $struct );
 $t2 = Pg::hstore::decode($t1);
 is_deeply($t2, $struct);
+
+Pg::hstore::encode('');
+Pg::hstore::encode('wtf');
+Pg::hstore::encode(undef);
+my $wtf = {};
+Pg::hstore::encode($wtf->{nonexist1});
+sub test {
+	my ($a) = @_;
+	Pg::hstore::encode($a->{nonexist2});
+}
+test($wtf);
 
 #Alone tests
 foreach my $k (keys %$struct) {
