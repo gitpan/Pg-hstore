@@ -90,7 +90,7 @@ CODE:
 		// Check we have buf mem
 		if( (buf_fill+(vallen+keylen)*2+10) > buf_len ) {
 			//Add 10 cus it can be 4x'"', 1x' => ', 1x', '
-			//We mul to 2 cus each character can be escaped with \
+			//We mul to 2 cus each character can be escaped with '\'
 			buf_len += (vallen+keylen)*2+10+ENCODE_BUF;
 			char *newbuf = (char*)realloc(buf, buf_len);
 			if( newbuf == NULL ) {
