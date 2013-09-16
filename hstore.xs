@@ -137,7 +137,7 @@ CODE:
 
 	res = newSVpv(buf, buf_fill);
 	if( utf8_flag_found ) {
-		sv_utf8_upgrade(res);
+		SvUTF8_on(res);
 	}
 	RETVAL = res;
 	free(buf);
@@ -159,8 +159,7 @@ INIT:
 	SV *svkey, *svval;
 CODE:
 	str_is_utf8 = SvUTF8(sv_str); // Is utf flag on
-	if( str_is_utf8 )
-		sv_utf8_downgrade(sv_str, 1);
+
 	str = SvPV_nolen(sv_str);
 	//printf("str_is_utf8=%d\n", str_is_utf8);
 	p=str;

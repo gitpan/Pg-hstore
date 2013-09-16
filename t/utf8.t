@@ -10,7 +10,7 @@ use Encode qw/is_utf8/;
 use Data::Dumper;
 use List::Util qw/shuffle/;
 
-use Test::More tests=>18;
+use Test::More tests=>27;
 BEGIN { use_ok('Pg::hstore') };
 
 #########################
@@ -45,12 +45,26 @@ ok($t1->{russian} eq $u);
 my $h = {
 	'a' => 'значение',
 	'b' => 'опять значение',
-	'онотоле' => 'откауэ'
+	'онотоле' => 'откауэ',
+        'cnt' => '漢語',
+        'cns' => '汉语',
+        'jp' => 'にほんご',
+        'ko' => '한국어',
 };
 
 is( Encode::is_utf8($h->{a}), 1, 'utf8 flag test');
 $t1 = Pg::hstore::encode($h);
 is( Encode::is_utf8($t1), 1, 'utf8 flag test');
+ok(
+    $t1 =~ /"a"\s*=>\s*"значение"/ &&
+    $t1 =~ /"b"\s*=>\s*"опять значение"/ &&
+    $t1 =~ /"онотоле"\s*=>\s*"откауэ"/ &&
+    $t1 =~ /"cnt"\s*=>\s*"漢語"/ &&
+    $t1 =~ /"cns"\s*=>\s*"汉语"/ &&
+    $t1 =~ /"jp"\s*=>\s*"にほんご"/ &&
+    $t1 =~ /"ko"\s*=>\s*"한국어"/,
+    'utf8 flag test: preserve string'
+);
 
 #backencode tests
 $t2 = Pg::hstore::decode($t1);

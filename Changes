@@ -1,5 +1,6 @@
 Revision history for Perl extension Pg::hstore.
 
+1.04 utf8 fix (thanks to Jin Kim for patch)
 1.03 segfault fix
 1.02 'bus error' fix
 1.01 Fix packing bugs
